@@ -125,16 +125,16 @@ int noteDuration3[] = {  12, 12, 12, 12,
                          3,
                          12, 12, 12, 12, 12, 12, 6, 3, 12, 12, 12, 12, 12, 12, 6, 6, 18, 18, 18, 6, 6, 6, 6, 6, 6, 18, 18, 18, 18, 18, 18, 10, 10, 10, 10, 10, 10, 3, 3, 3};
                          
-byte button1 = 2; // or whatever pins are being used
-byte button2 = 3;
-byte button3 = 4;
+byte button1 = 1; // or whatever pins are being used
+byte button2 = 2;
+byte button3 = 3;
 void setup() {
 pinMode (button1, INPUT_PULLUP);  // button with internal pullup, switch presses connects to Gnd
 pinMode (button2, INPUT_PULLUP);
 pinMode (button3, INPUT_PULLUP);
 }
 void loop(){
-if (digitalRead(button1) == LOW){
+if (digitalRead(button1) == LOW)
   for (int thisNote = 0; thisNote < 100; thisNote++) {
     int noteDuration = 1000 / noteDuration1[thisNote];
     tone(13, melody1[thisNote], noteDuration);
@@ -142,24 +142,22 @@ if (digitalRead(button1) == LOW){
     delay(pauseBetweenNotes);
     noTone(13);
   }
-if (digitalRead(button2) == LOW){
-  for (int thisNote = 0; thisNote < 100; thisNote++) {
+if (digitalRead(button2) == LOW)
+  for (int thisNote = 2; thisNote < 110; thisNote++) {
     int noteDuration = 1000 / noteDuration2[thisNote];
     tone(13, melody2[thisNote], noteDuration);
-    int pauseBetweenNotes = noteDuration * 1.40;
+    int pauseBetweenNotes = noteDuration * 1.10;
     delay(pauseBetweenNotes);
     noTone(13);
   }
-if (digitalRead(button3) == LOW){
-  for (int thisNote = 0; thisNote < 100; thisNote++) {
+if (digitalRead(button3) == LOW)
+  for (int thisNote = 3; thisNote < 150; thisNote++) {
     int noteDuration = 1000 / noteDuration3[thisNote];
     tone(13, melody3[thisNote], noteDuration);
     int pauseBetweenNotes = noteDuration * 1.40;
     delay(pauseBetweenNotes);
     noTone(13);
   }
-}}}
 }
-
 
 
